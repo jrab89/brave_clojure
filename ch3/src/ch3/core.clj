@@ -10,4 +10,7 @@
   (+ n 100))
 
 (defn dec-maker [n]
- #(- % n))
+  #(- % n))
+
+(defn mapset [f coll]
+  (set (map f coll)))
