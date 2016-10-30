@@ -21,3 +21,16 @@
 
 (deftest test-mapset
   (is (= #{2 3} (mapset inc [1 1 2 2]))))
+
+(deftest test-symmetrize-alien-body-parts
+  (let [input-parts [{:name "head",  :size 3}
+                     {:name "eye-1", :size 1}
+                     {:name "ear-1", :size 1}]
+        expected [{:name "head",  :size 3}
+                  {:name "eye-1", :size 1}
+                  {:name "eye-2", :size 1}
+                  {:name "eye-3", :size 1}
+                  {:name "ear-1", :size 1}
+                  {:name "ear-2", :size 1}
+                  {:name "ear-3", :size 1}]]
+    (is (= expected (symmetrize-alien-body-parts input-parts 3)))))

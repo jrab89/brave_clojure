@@ -14,3 +14,21 @@
 
 (defn mapset [f coll]
   (set (map f coll)))
+
+(defn nth-part
+  "Returns the same part, with the part name's number as n"
+  [part n]
+  {:name (clojure.string/replace-first (:name part) #"-\d+$" (str "-" n))
+   :size (:size part)})
+
+(defn n-matching-parts
+  [part n]
+  (map #(nth-part part %) (range 1 (inc n))))
+
+(defn symmetrize-alien-body-parts
+  "Expects a seq of maps that have a :name and :size"
+  [asym-body-parts n]
+  (vec (reduce (fn [final-body-parts part]
+            (concat final-body-parts (distinct (n-matching-parts part n))))
+          []
+          asym-body-parts)))
