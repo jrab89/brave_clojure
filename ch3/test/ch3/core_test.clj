@@ -13,5 +13,11 @@
     (let [decrementer (dec-maker dec-by)]
       (is (= expected (decrementer start))))))
 
+(deftest test-dec-maker-with-are
+  (are [start dec-by expected] (= expected ((dec-maker dec-by) start))
+    4 1 3
+    6 3 3
+    7 5 2))
+
 (deftest test-mapset
   (is (= #{2 3} (mapset inc [1 1 2 2]))))
