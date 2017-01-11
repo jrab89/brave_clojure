@@ -1,4 +1,4 @@
-(ns ch4.core
+(ns brave-clojure.ch4
   (:gen-class))
 
 (def filename "suspects.csv")

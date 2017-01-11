@@ -1,6 +1,6 @@
-(ns ch4.core-test
+(ns brave-clojure.ch4-test
   (:require [clojure.test :refer :all]
-            [ch4.core :refer :all]))
+            [brave-clojure.ch4 :refer :all]))
 
 (def edward   {:name "Edward Cullen"   :glitter-index 10})
 (def jacob    {:name "Jacob Black"     :glitter-index 3})

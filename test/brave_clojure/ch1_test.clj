@@ -1,6 +1,6 @@
-(ns ch1.core-test
+(ns brave-clojure.ch1-test
   (:require [clojure.test :refer :all]
-            [ch1.core :refer :all]))
+            [brave-clojure.ch1 :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

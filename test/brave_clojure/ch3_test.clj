@@ -1,6 +1,6 @@
-(ns ch3.core-test
+(ns brave-clojure.ch3-test
   (:require [clojure.test :refer :all]
-            [ch3.core :refer :all]))
+            [brave-clojure.ch3 :refer :all]))
 
 (deftest test-add-100
   (is (= 100 (add-100 0))))
