@@ -19,16 +19,12 @@
 (defn attribute [attr character]
   (attr (:attributes character)))
 
-(defn two-comp
-  [f g]
-  (fn [& args]
-    (f (apply g args))))
-
-(defn my-comp [& fs]
-  (reduce (fn [result f]
-            (fn [& args]
-              (result (apply f args))))
-          identity
-          fs))
-
-
+(defn jeffs-comp
+  [& fns]
+  (let [first-fn (last fns)
+        rest-fns (rest (reverse fns))]
+    (fn [& args]
+      (let [first-result (apply first-fn args)]
+        (reduce (fn [result next-fn] (next-fn result))
+                first-result
+                rest-fns)))))

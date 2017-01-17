@@ -2,9 +2,6 @@
   (:require [clojure.test :refer :all]
             [brave-clojure.ch5 :refer :all]))
 
-;; (deftest test-mapset
-;;   (is (= #{2 3} (mapset inc [1 1 2 2]))))
-
 (def smooches
   {:name "Smooches McCutes"
    :attributes {:intelligence 10
@@ -17,9 +14,10 @@
     :strength 4
     :dexterity 5))
 
-
-;; (deftest jeffs-comp-test
-;;   (are [character attr expected] (= expected (attribute attr character))
-;;     smooches :intelligence 10
-;;     smooches :strength 4
-;;     smooches :dexterity 5)
+(deftest jeffs-comp-test
+  (is (= 7
+         ((jeffs-comp inc *) 1 2 3)))
+  (is (= "25"
+         ((jeffs-comp str inc +) 8 8 8)))
+  (is (= 3
+         ((jeffs-comp +) 1 2))))
